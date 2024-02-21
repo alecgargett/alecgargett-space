@@ -51,14 +51,15 @@ main
 
 .code
 {   font-family: 'Cascadia Code', Menlo, Mono, Times, Liberation Sans, Baskerville, Times New Roman, serif;
-    font-size: small   }
+    font-size: small;   }
 
 .serif
 {   font-family: Liberation Serif, Baskerville, Times, Times New Roman, serif;
-    font-style: italic   }
+    font-style: italic;
+    font-size: larger;   }
 
 ul
 {   list-style: none;   }
 
 li
-{   padding: 2px    }
+{   padding: 2px;   }
