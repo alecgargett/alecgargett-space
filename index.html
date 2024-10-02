@@ -25,7 +25,7 @@
         --yellow-lighter-transparent: rgb(255, 220, 100, 0.9);
         --lighter-blue: rgb(0, 60, 180);
         --blue-darker: rgb(0, 20, 60);
-        --light-blue: rgb(111, 225, 255); }
+        --light-blue: rgb(111, 225, 255);   }
 
       body
       { margin: 0;
@@ -51,8 +51,8 @@
       {   background-color: rgba(0, 0, 0, 0.8);   }
 
       .darkmode
-      { background: linear-gradient(to right, var(--blue-darker) 0%, black 50%, var(--blue-darker) 100%);
-        color: white;   }
+      {   background: linear-gradient(to right, var(--blue-darker) 0%, rgba(0, 0, 0) 50%, var(--blue-darker) 100%);
+          color: white;   }
 
       .bluemode
       {   background: rgb(0, 30, 90);   }
@@ -65,7 +65,7 @@
       {   background: var(--yellow-darker);
           color: rgb(0, 0, 0);
           transition: background 3s ease, color 0s;
-          transition-delay: 0s, 1.5s;   }
+          transition-delay: 0s, 1s;   }
 
       .yellowmode .floatingtext
       {   background-color: var(--yellow-darker-transparent);
@@ -164,27 +164,17 @@
       .lightmode a:active, .yellowmode a:active, .whitemode a:active
       {   color: rgb(0, 255, 222);   }
 
-      .floatingfooter {
-          position: -webkit-sticky;
-          position: sticky;
-          bottom: 0;   }
+      .z-index-20
+      {   z-index: 20;   }
 
-      .floatingheader
-      {   position: -webkit-sticky;
-          position: sticky;
-          top: 2px;   }
+      .z-index-300
+      {   z-index: 300;   }
 
-      .z-index-10
-      {   z-index: 10;   }
+      .z-index-4000
+      {   z-index: 4000;   }
 
-      .z-index-200
-      {   z-index: 200;   }
-
-      .z-index-3000
-      {   z-index: 3000;   }
-
-      .z-index-40000
-      {   z-index: 40000;   }
+      .z-index-50000
+      {   z-index: 50000;   }
 
     </style>
 
@@ -194,41 +184,38 @@
 
         if (theme === 'yellowmode') {
           document.body.className = 'bluemode';
-          applySavedTheme();
-        } else if (theme === 'lightmode' || theme === 'whitemode') {
+          applySavedTheme();   }
+        else if (theme === 'lightmode' || theme === 'whitemode') {
           document.body.className = 'bluemode';
           document.body.className = 'yellowmode';
-          setTimeout(() => {
-            applySavedTheme();
-          }, 2000);
-        } else
-        {   applySavedTheme()   }
+          setTimeout(() => {   applySavedTheme();   }, 2000);   }
+        else {   applySavedTheme()   }
       }
 
-      function applySavedTheme()
-      { const theme = localStorage.getItem('theme');
+      function applySavedTheme() {
+        const theme = localStorage.getItem('theme');
 
         if (theme === 'bluemode')
-      {   document.body.className = 'bluemode';   }
-      else if (theme === 'yellowmode')
-      {   document.body.className = 'yellowmode';   }
-      else if (theme === 'lightmode')
-      {   document.body.className = 'lightmode';   }
-      else if (theme === 'whitemode')
-      {   document.body.className = 'whitemode';   }
-      else if (theme === 'alienmode')
-      {   document.body.className = 'alienmode';   }
-      else
-      {   document.body.className = 'darkmode';   }   }
+        {   document.body.className = 'bluemode';   }
+        else if (theme === 'yellowmode')
+        {   document.body.className = 'yellowmode';   }
+        else if (theme === 'lightmode')
+        {   document.body.className = 'lightmode';   }
+        else if (theme === 'whitemode')
+        {   document.body.className = 'whitemode';   }
+        else if (theme === 'alienmode')
+        {   document.body.className = 'alienmode';   }
+        else {   document.body.className = 'darkmode';   }
+      }
     </script>
 
     <script>
-      function toggleSavedTheme()
-      { const currentTheme = localStorage.getItem('theme');
+      function toggleSavedTheme() {
+        const currentTheme = localStorage.getItem('theme');
         let nextTheme;
 
-        switch (currentTheme)
-      {   case 'darkmode':
+        switch (currentTheme) {
+          case 'darkmode':
             nextTheme = 'bluemode';
             break;
           case 'bluemode':
@@ -245,58 +232,57 @@
             break;
           case 'alienmode':
           default:
-            nextTheme = 'darkmode';   }
+            nextTheme = 'darkmode';
+          }
 
         localStorage.setItem('theme', nextTheme);
-        applySavedTheme();   }
+        applySavedTheme();
+      }
     </script>
   
     <title>Alec Gargett dot space</title>
   </head>
   
   <body onload="applyTransitionToSavedTheme()">
-    
-    <header class="center">
-      
-    </header>
 
-      <nav id="home">
-        <br>
-        <button class="bigbutton" onclick="toggleSavedTheme(), applySavedTheme()">
-        BRIGHTNESS BUTTON
-        </button>
-        <a href="#music">Music</a>
-        <a href="#writingsnav">Writings</a>
-        <a href="#contact">Contact</a>
-        <br>
-      </nav>
+    <nav id="home">
+      <br>
+      <button class="bigbutton" onclick="toggleSavedTheme(), applySavedTheme()">
+      BRIGHTNESS BUTTON
+      </button>
+      <a href="#music">Music</a>
+      <a href="#writingsnav">Writings</a>
+      <a href="#contact">Contact</a>
+      <br>
+    </nav>
 
-      <nav id="music"">
-        <br>
-        <a href="https://linktr.ee/alecgargett" target="_blank">Linktree</a>
-        <br>
-      </nav>
+    <nav id="music"">
+      <br>
+      <a href="https://linktr.ee/alecgargett" target="_blank">Linktree</a>
+      <br>
+    </nav>
 
-      <nav id="writingsnav">
-        <br>
-        <a href="#danteEnglish">English Dante</a>
-        <a href="#politicsandpolicy">Politics and Policy</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#hypotheses">Hypotheses</a>
-        <a href="#danteItalian">Italian Dante</a>
-        <br>
-      </nav>
+    <nav id="writingsnav">
+      <br>
+      <a href="#aboutMe">About</a>
+      <a href="#danteEnglish">English Dante</a>
+      <a href="#politicsandpolicy">Politics and Policy</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#hypotheses">Hypotheses</a>
+      <a href="#danteItalian">Italian Dante</a>
+      <br>
+    </nav>
 
-      <nav id="contact">
-        <br>
-        <a href="mailto:alecgargett@gmail.com" style="font-size: clamp(0.5rem, 1.5rem, 6vw)">alecgargett@gmail.com</a>
-        <br>
-      </nav>
+    <nav id="contact">
+      <br>
+      <a href="mailto:alecgargett@gmail.com" style="font-size: clamp(0.5rem, 1.5rem, 6vw)">alecgargett@gmail.com</a>
+      <br>
+    </nav>
 
-      <div class="navspacer">
-      </div>
+    <div class="navspacer">
+    </div>
 
-      <main>
+    <main>
 
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap');
@@ -304,17 +290,25 @@
         #textsection
         {   display: grid;
             grid-template-columns: 1fr auto 1fr;   }
+
+        .floatingheader
+        {   position: -webkit-sticky;
+            position: sticky;
+            top: 1px;   }
+
+        .floatingfooter
+        {   position: -webkit-sticky;
+            position: sticky;
+            bottom: 1px;   }
         
         .leftright
         {   display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;   }
-    
 
-        .margin-left-auto {
-            margin-left: auto;
-        }
+        .margin-left-auto
+        {   margin-left: auto;   }
 
         .right
         {   text-align: right;
@@ -377,16 +371,15 @@
         {   opacity: 1;
             transition: opacity 0.2s ease-in-out;   }
       
-        @media screen and (min-width: 1024px)
-        {     .disappearingdesktop
-        {         opacity: 0;
-                  transition: opacity 0.4s ease-in-out;
-              }
+        @media screen and (min-width: 1024px) {
+          .disappearingdesktop
+          {   opacity: 0;
+                  transition: opacity 0.4s ease-in-out;   }
       
-        .disappearingdesktop:hover
-        {         opacity: 1;
-                  transition: opacity 0.2s ease-in-out;
-              }   }
+          .disappearingdesktop:hover
+          {   opacity: 1;
+              transition: opacity 0.2s ease-in-out;   }
+        }
       
         .code
         {   font-family: 'Cascadia Code', Menlo, Mono, Times, Liberation Sans, Baskerville, Times New Roman, serif;
@@ -408,12 +401,81 @@
       <section id="textsection">
 
 <div class="left-column"></div>
+
 <div class="middle-column">  
 <div class="articlemargin">
-  <header class="floatingheader leftright z-index-3000">
-    <a class="floatingtext z-index-40000" href="#writingsnav">WRITINGS</a>
+  <header class="floatingheader leftright z-index-20">
+    <a class="floatingtext z-index-300" href="#writingsnav">WRITINGS</a>
     <button class="margin-left-auto" onclick="toggleSavedTheme(), applySavedTheme()">BRIGHTNESS</button>
+  </header>
+
+<article id="aboutMe">
+  <br>
+<header>
+<h1>About me</h1>
 </header>
+<p> 
+I am a lucky man.
+</p>
+<p>
+I...
+</p>
+<p>
+live in my home town of Adelaide, which
+  <ul>
+    <li>is regarded as the most beautiful city in the world by the authors of <a href="https://www.architecturaldigest.com/gallery/the-most-beautiful-cities-in-the-world">this article</a> and by me;</li>
+    <li>has spacious beaches and rolling hills, both very close to the city, and fine weather;</li>
+    <li>has some lovely restaurants, bars and pubs;</li>
+    <li>has the cleanest air (when it comes to particulate matter) of any city of similar size or larger in the world according to <a href="https://map.purpleair.com/air-quality-standards-us-epa-aqi?opt=%2F1%2Fi%2Flt%2Fa525600%2Fp604800%2FcC0#1.33/15.4/30.9">PurpleAir</a>, the most reliable website for such comparisons, where controlling variables by using many sensors of the same type in every location is more important than absolute sensor quality;</li>
+    <li>less traffic congestion than almost all other cities.</li>
+  </ul>
+</p>
+<p>
+love beautiful views, spending time with friends and family, tennis, music, website development, programming, pragmatic public policy ideas to make everyone's lives better, history, pre-history and Shakespeare;
+</p>
+<p>
+teach programming at Code Camp;
+</p>
+<p>
+am studying a graduate degree in data science;
+</p>
+<p>
+am interested in become a full stack web developer and app developer;
+</p>
+<p>
+like the idea of more teaching, publishing more of my music (difficult due to ocassional mild tinnitis) & producing educational videos;
+</p>
+<p>
+studied History, Languages (Italian and Latin), Literature, Logic, Maths, Physics, Linguistics, Economics and Philosophy as part of my Bachelor of Arts, and majored in European Studies;
+</p>
+<p>
+have a graduate degree in International Security, effectively international relations with a focus on national security policy interactions;
+</p>
+<p>
+enjoy some historical fiction, comedy shows, crime shows, thrillers and dramas, including French, Italian and Korean series;
+</p>
+<p>
+have lived and worked in the UK, and studied in Italy and Canada, travelled in the United States, and visited China, Fiji and most Australian states.
+</p>
+<p class="disappearingdesktop">
+If you would like to comment or ask any questions you can contact me <a href="#contact">here</a>.
+</p>
+
+</article>
+
+<article id="aboutThisWebsite">
+  <br>
+<header>
+<h1>About this website</h1>
+</header>
+<p>
+  This website is written in a single html file with vanilla CSS and vanilla Javascript without any build tools or dependencies. I love the simplicity, power, accessibility and performance of this manual approach, at least for such a simple website, and the compromise I have found between <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a>, <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>, <a href="https://htmx.org/essays/rest-explained/">REST</a> and <a href="https://x.com/htmx_org/status/1693272214815363262">locality of behaviour.</a>
+</p>
+<p class="disappearingdesktop">
+If you would like to comment or ask any questions you can contact me <a href="#contact">here</a>.
+</p>
+
+</article>
 
 <article id="danteEnglish">
   <br>
@@ -1578,14 +1640,14 @@ turned behind to gaze along the path<br>
 that never yet left anyone alive.</p>
 
 </article>
-</div> <!-- articlemargin -->
-</div> <!-- middle-column -->
+</div> <!-- /articlemargin -->
+</div> <!-- /middle-column -->
 <div class="right-column"></div>
 </div>
       </section>
     </main>
-    <footer class="floatingfooter center z-index-3000">
-      <a class="floatingtext z-index-40000" href="#home">HOME</a>
+    <footer class="floatingfooter center z-index-20">
+      <a class="floatingtext z-index-300" href="#home">HOME</a>
     </footer>
   </body>
 
