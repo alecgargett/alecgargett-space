@@ -70,6 +70,11 @@
   .yellowmode .floatingtext
   { background-color: var(--yellow-darker-transparent);
     transition: 3s ease; }
+  
+  .yellowmode a
+  { color: var(--lighter-blue);
+    transition: color 0s;
+    transition-delay: 1s; }
 
   .lightmode
   { background: linear-gradient(to right, var(--yellow-darker) 0%, var(--yellow-lighter) 25%, var(--yellow-lighter) 75%, var(--yellow-darker) 100%);
@@ -83,14 +88,8 @@
   .lightmode a, .whitemode a
   { color: var(--lighter-blue); }
 
-  .yellowmode a
-  { color: var(--lighter-blue);
-    transition: color 0s;
-    transition-delay: 1s; }
-
   .whitemode
-  { background: white;
-    color: rgb(0, 0, 0);
+  { color: rgb(0, 0, 0);
     transition: 3s ease; }
 
   .whitemode .floatingtext
@@ -98,8 +97,34 @@
     transition: 3s ease; }
 
   .alienmode
-  { background: black;
-    color: rgb(90, 180, 255); }
+  { color: rgb(90, 180, 255); }
+
+  .blackbackground
+  { background: black; }
+
+  .halfdark
+  { background-image: url('images/alec_gargett_halfdark.png');
+    background-size: contain;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
+
+  .whitebackground
+  { background: white; }
+
+  .adelaideoval
+  { background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303.jpg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
+  
+  .adelaideovalsmile
+  { background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303_smile.jpg');
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
 
   .center
   { text-align: center;
@@ -206,9 +231,15 @@
    else if (theme === 'lightmode')
    { document.body.className = 'lightmode'; }
    else if (theme === 'whitemode')
-   { document.body.className = 'whitemode'; }
+   { document.body.className = 'whitemode whitebackground'; }
+   else if (theme === 'adelaideoval')
+   { document.body.className = 'whitemode adelaideoval'; }
+   else if (theme === 'adelaideovalsmile')
+   { document.body.className = 'whitemode adelaideovalsmile'; }
    else if (theme === 'alienmode')
-   { document.body.className = 'alienmode'; }
+   { document.body.className = 'alienmode blackbackground'; }
+   else if (theme === 'halfdark')
+   { document.body.className = 'alienmode halfdark'; }
    else { document.body.className = 'darkmode'; }
   }
   </script>
@@ -220,15 +251,21 @@
 
   if (currentTheme === 'darkmode')
   { nextTheme = 'bluemode'; }
-    else if (currentTheme === 'bluemode') 
+  else if (currentTheme === 'bluemode')
   { nextTheme = 'yellowmode'; }
-     else if (currentTheme === 'yellowmode') 
+  else if (currentTheme === 'yellowmode')
   { nextTheme = 'lightmode'; }
-     else if (currentTheme === 'lightmode') 
+  else if (currentTheme === 'lightmode')
   { nextTheme = 'whitemode'; }
-     else if (currentTheme === 'whitemode') 
+  else if (currentTheme === 'whitemode')
+  { nextTheme = 'adelaideoval'; }
+  else if (currentTheme === 'adelaideoval')
+  { nextTheme = 'adelaideovalsmile'; }
+  else if (currentTheme === 'adelaideovalsmile')
   { nextTheme = 'alienmode'; }
-     else 
+  else if (currentTheme === 'alienmode')
+  { nextTheme = 'halfdark'; }
+  else
   { nextTheme = 'darkmode'; }
 
   localStorage.setItem('theme', nextTheme);
@@ -240,6 +277,7 @@
  </head>
  
 <body onload="applyTransitionToSavedTheme()">
+<div class="content">
 <section id="navsection">
  <nav id="home">
  <br>
@@ -301,7 +339,7 @@
    .floatingfooter
    { position: -webkit-sticky;
      position: sticky;
-     bottom: 1px; }
+     bottom: 3px; }
    
    .leftright
    { display: flex;
@@ -1647,12 +1685,13 @@ that never yet left anyone alive.</p>
 </div> <!-- /middle-column -->
 <div class="right-column"></div>
 </div>
-   </section>
+</section>
   </main>
   <footer class="floatingfooter center z-index-20">
    <a class="floatingtext z-index-300" href="#home">HOME</a>
   </footer>
- </body>
+</div> <!-- /content -->
+</body>
 
  <tail style="display:none">  
   <script defer src="https://cdn.counter.dev/script.js" data-id="9cb95797-dd6c-4b86-ab11-90a4e37567d3" data-utcoffset="11"></script>
