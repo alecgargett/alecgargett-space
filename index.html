@@ -182,6 +182,10 @@
       function applyTransitionToSavedTheme() {
         const theme = localStorage.getItem('theme');
 
+        if (!theme) {
+          localStorage.setItem('theme', 'darkmode');
+        }
+
         if (theme === 'yellowmode') {
           document.body.className = 'bluemode';
           applySavedTheme();   }
@@ -265,17 +269,23 @@
     <nav id="writingsnav">
       <br>
       <a href="#aboutMe">About</a>
-      <a href="#danteEnglish">English Dante</a>
-      <a href="#politicsandpolicy">Politics and Policy</a>
+      <a href="#dantenav">Dante</a>
       <a href="#timeline">Timeline</a>
+      <a href="#politicsandpolicy">Politics and Policy</a>
       <a href="#hypotheses">Hypotheses</a>
-      <a href="#danteItalian">Italian Dante</a>
       <br>
     </nav>
 
     <nav id="contact">
       <br>
       <a href="mailto:alecgargett@gmail.com" style="font-size: clamp(0.5rem, 1.5rem, 6vw)">alecgargett@gmail.com</a>
+      <br>
+    </nav>
+
+    <nav id="dantenav">
+      <br>
+      <a href="#danteEnglish">English Dante</a>
+      <a href="#danteItalian">Italian Dante</a>
       <br>
     </nav>
 

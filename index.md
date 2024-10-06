@@ -35,7 +35,7 @@
     
       
       alecgargett@gmail.com
-      
+        
     WRITINGS
     BRIGHTNESS
   
