@@ -7,7 +7,7 @@
  
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Silkscreen" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
  
  <link rel="icon" href="images/alec_gargett_adelaide_oval_torrens_river_202303.jpg" type="image/x-icon">
  
@@ -30,7 +30,7 @@
   body
   { margin: 0;
     background: black;
-    color: white;
+    color: rgba(255, 255, 255, 0);
     font-family: var(--font-family-main);
     scrollbar-width: 5px;
     scrollbar-color: rgba(111, 225, 255, 0.5) var(--blue-darker); }
@@ -107,7 +107,8 @@
     background-size: contain;
     background-position: top;
     background-attachment: fixed;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    transition: ease 3s; }
 
   .whitebackground
   { background: white; }
@@ -132,7 +133,7 @@
 
   button
   { color: white;
-    background: linear-gradient(to bottom right, rgba(0, 0, 88), rgb(0, 88, 0));
+    background: linear-gradient(to bottom right, rgba(0, 0, 177), rgb(0, 177, 0));
     border: 0px; }
 
   .bigbutton
@@ -143,7 +144,10 @@
     font-size: clamp(1rem, 1.5rem, 10vw); }
 
   button:hover
-  { background: linear-gradient(to bottom right, rgb(0, 88, 255), rgb(0, 255, 88)); }
+  { background: linear-gradient(to bottom right, rgb(0, 0, 255), rgb(0, 255, 0)); }
+
+  button:active
+  { background: linear-gradient(to bottom right, rgb(0, 133, 255), rgb(0, 255, 133)); }
 
   nav, .navspacer
   { height: calc(100vh);
@@ -157,7 +161,18 @@
   a, nav, button
   { text-decoration: none;
     color: var(--light-blue);
-    font-family: 'Silkscreen', var(--font-family-main); }
+    font-family: 'Silkscreen', var(--font-family-main);
+    opacity: 0; 
+    animation: fadeIn 3s ease 0.1s forwards; }
+
+  @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
   p, ul, ol, a
   { background-color: black;
