@@ -23,14 +23,16 @@
     --yellow-darker-transparent: rgb(255, 174, 0, 0.7);
     --yellow-lighter: rgb(255, 220, 100);
     --yellow-lighter-transparent: rgb(255, 220, 100, 0.9);
-    --lighter-blue: rgb(0, 60, 180);
-    --blue-darker: rgb(0, 20, 60);
-    --light-blue: rgb(111, 225, 255); }
+    --blue-darkest: rgb(0, 0, 60);
+    --blue-darker: rgb(0, 10, 80);
+    --blue-medium: rgb(0, 60, 180);
+    --blue-lighter: rgb(90, 200, 255);
+    --blue-lightest: rgb(111, 225, 255); }
 
   body
   { margin: 0;
     background: black;
-    color: rgba(255, 255, 255, 0);
+    color: white;
     font-family: var(--font-family-main);
     scrollbar-width: 5px;
     scrollbar-color: rgba(111, 225, 255, 0.5) var(--blue-darker); }
@@ -50,12 +52,14 @@
   .floatingtext
   { background-color: rgba(0, 0, 0, 0.8); }
 
+  .alienmode
+  { color: var(--blue-lighter); }
+
   .darkmode
-  { background: linear-gradient(to right, var(--blue-darker) 0%, rgba(0, 0, 0) 50%, var(--blue-darker) 100%);
-    color: white; }
+  { color: white; }
 
   .bluemode
-  { background: rgb(0, 30, 90); }
+  { background: var(--blue-darker); }
 
   .bluemode .floatingtext
   { background-color: rgba(0, 30, 90, 0.85);
@@ -72,7 +76,7 @@
     transition: 3s ease; }
   
   .yellowmode a
-  { color: var(--lighter-blue);
+  { color: var(--blue-medium);
     transition: color 0s;
     transition-delay: 1s; }
 
@@ -86,7 +90,7 @@
     transition: 3s ease; }
 
   .lightmode a, .whitemode a
-  { color: var(--lighter-blue); }
+  { color: var(--blue-medium); }
 
   .whitemode
   { color: rgb(0, 0, 0);
@@ -96,36 +100,53 @@
   { background-color: rgba(255, 255, 255, 0.8);
     transition: 3s ease; }
 
-  .alienmode
-  { color: rgb(90, 180, 255); }
-
   .blackbackground
   { background: black; }
 
   .halfdark
   { background-image: url('images/alec_gargett_halfdark.png');
     background-size: contain;
-    background-position: top;
+    background-position-x: 50%;
+    background-position-y: top;
     background-attachment: fixed;
     background-repeat: no-repeat;
     transition: ease 3s; }
 
+  .halfdarkstart
+  { background-image: url('images/alec_gargett_halfdark.png');
+    background-size: contain;
+    background-position-x: calc(50% - 100px);
+    background-position-y: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat; }
+
+  .blueblackblueback
+  { background: linear-gradient(to right, var(--blue-darker) 0%, rgba(0, 0, 0) 50%, var(--blue-darker) 100%); }
+
   .whitebackground
-  { background: white; }
+  { background-color: white;
+    transition: 3s ease; }
+
+  .whitepixel
+  { background-image: url('images/white_pixel.jpg');
+    background-size: cover;
+    transition: 3s ease; }
 
   .adelaideoval
   { background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303.jpg');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    transition: 1s ease; }
   
   .adelaideovalsmile
   { background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303_smile.jpg');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    transition: 1s ease; }
 
   .center
   { text-align: center;
@@ -160,7 +181,7 @@
 
   a, nav, button
   { text-decoration: none;
-    color: var(--light-blue);
+    color: var(--blue-lightest);
     font-family: 'Silkscreen', var(--font-family-main);
     opacity: 0; 
     animation: fadeIn 3s ease 0.1s forwards; }
@@ -179,7 +200,7 @@
     transition: 2s ease; }
   
   .bluemode a, .bluemode p, .bluemode ul, .bluemode ol
-  { background-color: var(--blue-darker);
+  { background-color: var(--blue-darkest);
     transition: 2s ease; }
 
   .lightmode a, .lightmode p, .lightmode ul, .lightmode ol, .yellowmode a, .yellowmode p, .yellowmode ul, .yellowmode ol
@@ -188,7 +209,7 @@
    
   .whitemode a, .whitemode p, .whitemode ul, .whitemode ol
   { background-color: white;
-    transition: 2s ease; }
+    transition: 3s ease; }
 
   a:hover
   { color: greenyellow;
@@ -199,7 +220,6 @@
 
   .lightmode a:hover, .yellowmode a:hove, .whitemode a:hover
   { color: rgb(0, 222, 111); }
-
 
   .lightmode a:active, .yellowmode a:active, .whitemode a:active
   { color: rgb(0, 255, 222); }
@@ -218,24 +238,7 @@
 
   </style>
 
-  <script>
-  function applyTransitionToSavedTheme() {
-   const theme = localStorage.getItem('theme');
-
-   if (!theme) {
-    localStorage.setItem('theme', 'darkmode');
-   }
-
-   if (theme === 'yellowmode') {
-    document.body.className = 'bluemode';
-    applySavedTheme(); }
-   else if (theme === 'lightmode' || theme === 'whitemode') {
-    document.body.className = 'bluemode';
-    document.body.className = 'yellowmode';
-    setTimeout(() => { applySavedTheme(); }, 2000); }
-   else { applySavedTheme() }
-  }
-
+  <script id="applySavedTheme">
   function applySavedTheme() {
    const theme = localStorage.getItem('theme');
 
@@ -246,7 +249,8 @@
    else if (theme === 'lightmode')
    { document.body.className = 'lightmode'; }
    else if (theme === 'whitemode')
-   { document.body.className = 'whitemode whitebackground'; }
+   { document.body.className = 'whitemode whitebackground';
+     setTimeout(() => { document.body.className = 'whitemode whitepixel'; }, 3000); }
    else if (theme === 'adelaideoval')
    { document.body.className = 'whitemode adelaideoval'; }
    else if (theme === 'adelaideovalsmile')
@@ -254,12 +258,34 @@
    else if (theme === 'alienmode')
    { document.body.className = 'alienmode blackbackground'; }
    else if (theme === 'halfdark')
-   { document.body.className = 'alienmode halfdark'; }
-   else { document.body.className = 'darkmode'; }
+   { document.body.className = 'darkmode halfdarkstart';
+     setTimeout(() => { document.body.className = 'darkmode halfdark'; }, 0); }
+     
+   else { document.body.className = 'darkmode blueblackblueback'; }
   }
   </script>
 
-  <script>
+  <script id="applyTransitionToSavedTheme">
+  function applyTransitionToSavedTheme() {
+   const theme = localStorage.getItem('theme');
+
+   if (!theme) {
+    localStorage.setItem('theme', 'halfdark');
+   }
+
+   if (theme === 'lightmode' || theme === 'whitemode')
+   { document.body.className = 'yellowmode';
+     setTimeout(() => { applySavedTheme(); }, 2000); }
+   else if (theme === 'adelaideoval' || 'adelaideovalsmile')
+   { document.body.className = 'bluemode';
+     setTimeout(() => {document.body.className = 'whitemode whitebackground'; }, 0);
+     setTimeout(() => { document.body.className = 'whitemode whitepixel'; }, 3000);
+     setTimeout(() => { applySavedTheme(); }, 3100); }
+   else { applySavedTheme() }
+  }
+  </script>
+
+  <script id="toggleSavedTheme">
   function toggleSavedTheme() {
   const currentTheme = localStorage.getItem('theme');
   let nextTheme;
