@@ -56,7 +56,8 @@
   { color: var(--blue-lighter); }
 
   .darkmode
-  { color: white; }
+  { background-color: black;
+    color: white; }
 
   .bluemode
   { background: var(--blue-darker); }
@@ -82,7 +83,7 @@
 
   .lightmode
   { background: linear-gradient(to right, var(--yellow-darker) 0%, var(--yellow-lighter) 25%, var(--yellow-lighter) 75%, var(--yellow-darker) 100%);
-    color: rgb(0, 0, 66);
+    color: var(--blue-darkest);
     transition: 3s ease; }
 
   .lightmode .floatingtext
@@ -242,26 +243,26 @@
   function applySavedTheme() {
    const theme = localStorage.getItem('theme');
 
-   if (theme === 'bluemode')
+   if (theme === 'halfdark')
+   { document.body.className = 'blackbackground darkmode';
+     document.body.className = 'halfdarkstart darkmode';
+     setTimeout(() => { document.body.className = 'halfdark darkmode'; }, 0); }
+   else if (theme === 'bluemode')
    { document.body.className = 'bluemode'; }
    else if (theme === 'yellowmode')
    { document.body.className = 'yellowmode'; }
    else if (theme === 'lightmode')
    { document.body.className = 'lightmode'; }
    else if (theme === 'whitemode')
-   { document.body.className = 'whitemode whitebackground';
-     setTimeout(() => { document.body.className = 'whitemode whitepixel'; }, 3000); }
+   { document.body.className = 'whitebackground whitemode';
+     setTimeout(() => { document.body.className = 'whitepixel whitemode'; }, 3000); }
    else if (theme === 'adelaideoval')
-   { document.body.className = 'whitemode adelaideoval'; }
+   { document.body.className = 'adelaideoval whitemode'; }
    else if (theme === 'adelaideovalsmile')
-   { document.body.className = 'whitemode adelaideovalsmile'; }
+   { document.body.className = 'adelaideovalsmile whitemode'; }
    else if (theme === 'alienmode')
-   { document.body.className = 'alienmode blackbackground'; }
-   else if (theme === 'halfdark')
-   { document.body.className = 'darkmode halfdarkstart';
-     setTimeout(() => { document.body.className = 'darkmode halfdark'; }, 0); }
-     
-   else { document.body.className = 'darkmode blueblackblueback'; }
+   { document.body.className = 'blackbackground alienmode'; }
+   else { document.body.className = 'blueblackblueback darkmode'; }
   }
   </script>
 
@@ -276,7 +277,7 @@
    if (theme === 'lightmode' || theme === 'whitemode')
    { document.body.className = 'yellowmode';
      setTimeout(() => { applySavedTheme(); }, 2000); }
-   else if (theme === 'adelaideoval' || 'adelaideovalsmile')
+   else if (theme === 'adelaideoval' || theme === 'adelaideovalsmile')
    { document.body.className = 'bluemode';
      setTimeout(() => {document.body.className = 'whitemode whitebackground'; }, 0);
      setTimeout(() => { document.body.className = 'whitemode whitepixel'; }, 3000);
@@ -490,6 +491,31 @@
   <button class="margin-left-auto" onclick="toggleSavedTheme(), applySavedTheme()">BRIGHTNESS</button>
  </header>
 
+<section id="about">
+
+<article id="aboutThisWebsite">
+  <br>
+  <header>
+  <h1>About this website</h1>
+  </header>
+  <br>
+  <p>
+    This website is a work in progress, currently under development.
+    It is a playground where I practice my skills in programming and design, and share other creative work.
+  </p>
+  <p>
+   The site is written in a single html file containing vanilla CSS and vanilla Javascript,
+   without any other dependencies, and without any build tools.
+   This forces me to be creative and to strengthen my grasp on the fundamentals,
+   and it prevents the site being too generic. I love the simplicity, power, accessibility and performance of this manual approach,
+   at least for such a simple website, and the compromise I have found between <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a>, <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>, <a href="https://htmx.org/essays/rest-explained/">REST</a> and <a href="https://x.com/htmx_org/status/1693272214815363262">locality of behaviour.</a>
+  </p>
+  <p class="disappearingdesktop">
+  If you would like to comment or ask any questions you can contact me <a href="#contact">here</a>.
+  </p>
+  
+  </article>
+
 <article id="aboutMe">
 <br>
 <header>
@@ -544,19 +570,7 @@ If you would like to comment or ask any questions you can contact me <a href="#c
 
 </article>
 
-<article id="aboutThisWebsite">
-<br>
-<header>
-<h1>About this website</h1>
-</header>
-<p>
- This website is written in a single html file with vanilla CSS and vanilla Javascript without any build tools or dependencies. It forces me to be creative and familiar with the fundamentals, and it prevents the site being too generic. I love the simplicity, power, accessibility and performance of this manual approach, at least for such a simple website, and the compromise I have found between <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a>, <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>, <a href="https://htmx.org/essays/rest-explained/">REST</a> and <a href="https://x.com/htmx_org/status/1693272214815363262">locality of behaviour.</a>
-</p>
-<p class="disappearingdesktop">
-If you would like to comment or ask any questions you can contact me <a href="#contact">here</a>.
-</p>
-
-</article>
+</section> <!-- /about -->
 
 <article id="danteEnglish">
 <br>
