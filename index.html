@@ -27,7 +27,7 @@
 <section id="navsection">
  <nav id="home">
  <br>
- <button class="bigbutton" onclick="increaseBrightnessOnClick(), applySavedTheme()">
+ <button class="bigbutton" onclick="increaseBrightnessOnClick()">
  BRIGHTNESS BUTTON
  </button>
  <a href="#music">Music</a>
@@ -1375,13 +1375,13 @@ function applySavedTheme() {
     background_image_div.className = ''; }
   else if (theme === 'adelaideoval')
   { body.className = 'adelaideoval lighttheme';
-    body.className = 'adelaideoval whitetheme';
+    body.className = 'adelaideoval whitetheme lighttheme';
     background_div.className = '';
     background_color_div.className = '';
     background_image_div.className = ''; }
   else if (theme === 'whitemode')
   { body.className = 'yellowbackground';
-    body.className = 'whitebackground whitetheme';
+    body.className = 'whitebackground whitetheme lighttheme';
     background_div.className = '';
     background_color_div.className = '';
     background_image_div.className = ''; }
@@ -1417,7 +1417,7 @@ function applyTransitionToSavedTheme() {
   { document.getElementById('background-color-div').className = 'bluebackground'
     document.body.className = 'yellowbackground lighttheme';
     document.getElementById('background-color-div').className = ''
-    setTimeout(() => { document.body.className = 'yellowtransition lighttheme'; }, 2000);
+    setTimeout(() => { document.body.className = 'yellowgradient lighttheme'; }, 2000);
     setTimeout(() => { applySavedTheme(); }, 3000); }
   else { applySavedTheme() }
 }
@@ -1559,20 +1559,20 @@ a:active
 { background-color: var(--yellow-darker-transparent);
   transition: 2s ease; }
 
-.lighttheme a, .whitetheme a
+.lighttheme a
 { color: var(--blue-medium); }
 
-.lighttheme a:hover, .whitetheme a:hover
+.lighttheme a:hover
 { color: rgb(0, 222, 111); }
 
-.lighttheme a:active, .whitetheme a:active
+.lighttheme a:active
 { color: rgb(0, 255, 222); }
 
 .whitetheme, .whitetheme .floatingtext, .whitetheme p, .whitetheme ul, .whitetheme ol
 { color: black;
   background-color: rgba(255, 255, 255, 0.8); }
 
-.whitetheme h1, .whitetheme h2, .whitetheme h3, .whitetheme h4
+.whitetheme h1, .whitetheme h2, .whitetheme h3, .whitetheme h4, .whitetheme nav, .whitetheme a
 { color: black;
   background-color: rgba(255, 255, 255, 0.5); }
 
@@ -1636,22 +1636,13 @@ a:active
   background-size: cover;
   transition: 3s ease; }
 
-.adelaideoval::before
-{ background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303.jpg');
-  background-size: cover;
-  background-position: top;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  transition: 3s ease;
-  opacity: 0; }
-
 .adelaideoval
 { background-image: url('images/alec_gargett_adelaide_oval_torrens_river_202303.jpg');
   background-size: cover;
   background-position: top;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  transition: 3s ease;
+  transition: 0s;
   opacity: 1; }
 
                   /* STYLES: OTHER */
