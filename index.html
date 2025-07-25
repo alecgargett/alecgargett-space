@@ -24,7 +24,7 @@
 <div id="background-color-div">
 <div id="background-image-div">
 <div class="content-div">
-<section id="navsection">
+<div id="navdiv">
  <nav id="home">
  <br>
  <button class="bigbutton" onclick="increaseBrightnessOnClick()">
@@ -63,9 +63,9 @@
  <div class="navspacer">
  </div>
 
-<main>
+</div> <!-- /navdiv -->
 
-<section id="textsection">
+<main id="textsection">
 
   <div class="left-column"></div>
   <div class="middle-column"> 
@@ -78,9 +78,7 @@
   
   <article id="books">
   <br>
-  <header>
   <h2>Books</h2>
-  </header>
   
   <p>
   I'm currently writing a book called <i>Policy and Politics</i>.
@@ -98,9 +96,9 @@
 
    <li><i>Humans</i>, a novel telling the story of humanity through historical figures and prehistoric characters</li>
    
-   <li><i>Abecedary</i>, a thriller novel involving romance and organised crime that is also a dictionary of useful words, with each word used in alphabetical order</li>
+   <li><i>Abecedary</i>, a thriller novel involving romance and organised crime that is also a dictionary of useful words, with each difficult word used in alphabetical order</li>
 
-   <li><i>Literature: a history and anthology</i>, which will contain my own translations of excerpts of world literature and my own commentary on the history</li>
+   <li><i>The Story of Everything: A Literary History of the World</i>, an idiosyncratic history of the world that will contain my own translations of excerpts of world literature and my own commentary on the history of the world and of world literature.</li>
 
   </ul>
   
@@ -202,17 +200,23 @@
   <p class="disappearing">Note: In Australia we have an organisation called the <i>Fair Work Commission</i>, which attempts the work of fairly regulating employment to ensure adequate payment of employees by their employers. For example, they increase the minimum wage in line with increases in the CPI, the central bank's estimate of inflation in consumer prices. This is important work but it is not adequate for fair payment for the reasons discussed above.
   </p>
 
-  </article> <!-- /policy -->  
+  </article> <!-- /policy -->
 
-  <article id="happiness">
+  <!-- <article id="happiness">
 
-  </article> <!-- /happiness -->
+   <h2></h2>
 
-  <article id="design">
+  </article>  /happiness -->
 
-  </article> <!-- /design -->
+  <!-- <article id="design">
+
+   <h2></h2>
+
+  </article>  /design -->
 
   <section id="literature">
+
+   <h2>The Story of Everything</h2>
 
   <br>
 
@@ -252,7 +256,7 @@
   in which the straight track had been lost from sight.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Nel mezzo del cammin di nostra vita<br>
   mi ritrovai per una selva oscura,<br>
@@ -263,15 +267,15 @@
   me I-found for a forest dark,<br>
   of-which the straight way was lost.
   </p>
-  </span>
-  
+  </div>
+
   <p>
   How hard it is to say what that thing was,<br>
   this forest, savage and fierce that drowns with power,<br>
   that just to think of it renews my fear.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Ahi quanto a dir qual era è cosa dura<br>
   esta selva selvaggia e aspra e forte<br>
@@ -282,7 +286,7 @@
   this forest savage and harsh and strong<br>
   that in-the thought renews the fear!
   </p>
-  </span>
+  </div>
   
   <p>
   It is so harsh that death is not much worse,<br>
@@ -290,7 +294,7 @@
   I will recount of other things I saw.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Tant’è amara che poco è più morte;<br>
   ma per trattar del ben ch’i’ vi trovai,<br>
@@ -301,7 +305,7 @@
   but to portray of-the good that I there found,<br>
   I-will-tell of the other things that I there have seen.
   </p>
-  </span>
+  </div>
   
   <p>
   I can't explain how I had ended there,<br>
@@ -309,7 +313,7 @@
   that I abandoned every careful way.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Io non so ben ridir com’i’ v’intrai,<br>
   tant’ero pien di sonno a quel punto<br>
@@ -320,7 +324,7 @@
   so-much I-was full of sleep at that point<br>
   that the true way I-abandoned.
   </p>
-  </span>
+  </div>
   
   <p>
   But when I reached the foot of that kind hill<br>
@@ -331,7 +335,7 @@
   the light that leads us all on every path.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Ma poi ch’i’ fui al piè d’un colle giunto,<br>
   là dove terminava quella valle<br>
@@ -348,7 +352,7 @@
   clothed already with-the rays of-the planet<br>
   that leads straight others through every path.
   </p>
-  </span>
+  </div>
   
   <p>
   Then was the fear a little quieted,<br>
@@ -356,7 +360,7 @@
   that night which I'd just passed with so much sorrow.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   Allor fu la paura un poco queta,<br>
   che nel lago del cor m’era durata<br>
@@ -366,7 +370,7 @@
   that in-the lake of-the heart to-me had lasted<br>
   the night that I passed with so-much sorrow.
   </p>
-  </span>
+  </div>
   
   <p>
   And like one soaked and gasping out of breath<br>
@@ -377,7 +381,7 @@
   that never yet left anyone alive.
   </p>
   
-  <span class="disappearing">
+  <div class="disappearing">
   <p class="serif">
   E come quei che con lena affannata,<br>
   uscito fuor del pelago a la riva,<br>
@@ -393,7 +397,7 @@
   itself it-turned to behind to gaze the path<br>
   that never left yet any person alive.
   </p>
-  </span>
+  </div>
   </article>  <!-- /danteEnglish -->
     
   <div class="navspacer"></div>
@@ -694,7 +698,7 @@
   They had finished building the last boat earlier that day. Four canoes, four paddles, four spears and all of their meagre possessions were waiting for them on shore.
   </p>
 
-<h3>The hunger of Orogk's tribe</h2>
+<h3>The hunger of Orogk's tribe</h3>
 
 
   <p>
@@ -731,7 +735,7 @@
   He waited for the swell of foreboding to pass and his attention drifted back to the ocean beneath his canoe.
   </p>
 
-<h3>Orogk goes fishing</h4>
+<h3>Orogk goes fishing</h3>
 
 
   <p>
@@ -772,7 +776,6 @@ and parchment.
   <p>
   If you would like to comment on this timeline or ask any questions you can contact me <a href="#contact">here</a>.
   </p>
-  <p class="disappearing">
   <ul class="disappearing" style="list-style-type: none; padding-left: 0;">
   <li>bya = billion years ago</li>
   <li>mya = million years ago</li>
@@ -780,7 +783,6 @@ and parchment.
   <li>BCE (before common era) = BC (before Christ)</li>
   <li>CE (common era) = AD (anno domini)</li>
   </ul>
-  </p>
   <p>
   Scholars believe:
   </p>
@@ -1103,7 +1105,7 @@ and parchment.
   </p>
   <h4>~800-400 BCE</h4>
   <p>
-  The Book of Songs was written in China and the Upanishads were written in India. The presumably fictional "Leir of Britain", the basis for King Lear, lived around this time according to Geoffrey of Monmouth's pseudohistorical <i>History of the Kings of Britain<i>.</p>
+   The Book of Songs was written in China and the Upanishads were written in India. The presumably fictional "Leir of Britain", the basis for King Lear, lived around this time according to Geoffrey of Monmouth's pseudohistorical <i>History of the Kings of Britain</i>.
   </p>
   <h4>~722-586 BCE</h4>
   <p>
@@ -1148,7 +1150,7 @@ and parchment.
   By this time the Indo-European languages had taken over almost all of Europe including Britain and Ireland, but large parts of Spain still spoke pre-Indo-European-languages, along with the Etruscans in Italy. (<a href="https://www.youtube.com/watch?v=zOcPDhapJ28" target="_blank">The History of the European languages 4000 BC - 2021 AD</a>)</p>
   <h4>~411-404 BCE</h4>
   <p>
-  A coup established a ruling council known as The Four Hundred. This lasted only a few months before its collapse and the eventual restoration of democracy. Later, another coup by the rich men of Athens, some of whom were reportedly students of Socrates, establishes a new dictatorship called The Thirty, but again it does not last long.</p>
+  A coup established a ruling council known as The Four Hundred. This lasted only a few months before its collapse and the eventual restoration of democracy. Later, another coup by the rich men of Athens, some of whom were reportedly students of Socrates, establishes a new dictatorship called The Thirty, but again it does not last long.
   </p>
   <h4>~405-396 BCE</h4>
   <p>
@@ -1623,8 +1625,7 @@ and parchment.
   </div> <!-- /middle-column -->
   <div class="right-column"></div>
 
-</section> <!-- /textsection -->
-  </main>
+</main>
   <footer class="floatingfooter center z-index-20">
    <a class="floatingtext z-index-300" href="#home">HOME</a>
   </footer>
@@ -1774,7 +1775,6 @@ body
   background-color: black;
   color: white;
   font-family: var(--font-family-main);
-  scrollbar-width: 5px;
   scrollbar-color: rgba(111, 225, 255, 0.5) var(--blue-darker); }
 
 ::-webkit-scrollbar
@@ -1990,7 +1990,6 @@ a:active
 
 .right
 { text-align: right;
-  align-items: right;
   margin-right: 10px; }
 
 .margin-bottom-0
